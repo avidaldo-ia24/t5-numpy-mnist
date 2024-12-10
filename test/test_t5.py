@@ -1,4 +1,3 @@
-import pytest
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 
@@ -40,7 +39,7 @@ def test_notebook_execution():
         'y_train_onehot',
         'y_test_onehot',
         'X_train_norm',
-        'X_train_std',
+        'X_train_standardized',
         
         'X_train_noisy',
         'binarize_image',
@@ -95,8 +94,8 @@ def test_notebook_execution():
     assert np.isclose(X_train_standardized.mean(), 0)
     assert np.isclose(X_train_standardized.std(), 1)
     
-    assert np.isclose(X_train_norm_standarized.mean(), 0.130660)
-    assert np.isclose(X_train_norm_standarized.std(), 0.308107)
+    assert np.isclose(X_train_norm.mean(), 0.130660)
+    assert np.isclose(X_train_norm.std(), 0.308107)
     
     assert X_train_noisy.shape == (60000, 28, 28)
     assert X_train_noisy.min() >= 0
