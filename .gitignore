@@ -1,0 +1,9 @@
+.pytest_cache
+
+# Ignore .pyc files
+*.pyc
+
+# Ignore __pycache__ folders
+__pycache__/
+
+app.log
